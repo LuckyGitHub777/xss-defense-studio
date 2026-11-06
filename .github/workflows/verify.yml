@@ -22,5 +22,7 @@ jobs:
         uses: actions/setup-node@949feb2413d6458794dcd2491c4babbbce0c15c1
         with:
           node-version: '22'
+      - name: Verify reviewed source checksums
+        run: sha256sum --check --strict SHA256SUMS
       - name: Run offline DOM and defensive policy tests
         run: npm test
