@@ -10,6 +10,5 @@ This is defensive education, not a penetration test or security audit.
 Run tests with Node.js 20 or later: npm test
 SHA256SUMS records the reviewed source bytes.
 
-PREPUBLICATION: No redistribution license or public distribution consent is
-granted by this package. Publisher, authorship, rights, asset provenance, and
-the exact public destination require independent review and approval.
+Public defensive education edition; not a security audit or exploit kit.
+Source is viewable, with no redistribution or derivative-use license granted.
