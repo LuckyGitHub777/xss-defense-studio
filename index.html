@@ -1,0 +1,103 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="color-scheme" content="dark">
+  <meta name="description" content="An offline educational studio exploring context-aware output and safe DOM rendering.">
+  <meta http-equiv="Content-Security-Policy" content="default-src 'none'; style-src 'self'; script-src 'self'; img-src 'self'; connect-src 'none'; form-action 'none'; frame-src 'none'; base-uri 'none'">
+  <title>Context Matters — XSS Defense Studio</title>
+  <link rel="stylesheet" href="./styles.css">
+  <script defer src="./app.js"></script>
+</head>
+<body>
+  <a class="skip-link" href="#studio">Skip to the studio</a>
+  <div class="ambient-grid" aria-hidden="true"></div>
+  <header class="masthead">
+    <a class="wordmark" href="#top" aria-label="Context Matters home"><span class="logo-mark" aria-hidden="true">◇</span><span>CONTEXT <span class="wordmark-muted">/</span> MATTERS</span></a>
+    <nav aria-label="Primary navigation"><a href="#principles">Principles</a><a href="#studio">Studio</a><a href="#check">Knowledge check</a></nav>
+    <span class="masthead-meta">DEFENSIVE STUDIES <span aria-hidden="true">·</span> 01</span>
+  </header>
+
+  <main id="top">
+    <section class="hero" aria-labelledby="hero-title">
+      <div class="hero-content">
+        <p class="eyebrow"><span class="eyebrow-line" aria-hidden="true"></span> WEB SECURITY, WITHOUT THE NOISE</p>
+        <h1 id="hero-title">The boundary<br>is <em>the beauty.</em></h1>
+        <p class="hero-intro">When data is treated as data, the interface stays yours. Explore the quiet craft of rendering untrusted text safely.</p>
+        <div class="hero-links"><a class="primary-cta" href="#studio">Enter the studio <span aria-hidden="true">↗</span></a><a class="text-cta" href="#principles">See the principles <span aria-hidden="true">↓</span></a></div>
+        <p class="subtle">Offline by design. No sign-in, analytics, or external dependencies.</p>
+      </div>
+      <div class="hero-visual" aria-hidden="true">
+        <div class="visual-ring ring-one"></div><div class="visual-ring ring-two"></div><div class="visual-ring ring-three"></div>
+        <div class="visual-core"><span>&lt;</span><span class="visual-divider">|</span><span>&gt;</span></div>
+        <span class="visual-caption vc-top">INPUT IS NOT INSTRUCTION</span>
+        <span class="visual-caption vc-bottom">BOUNDARY / 001</span>
+      </div>
+    </section>
+
+    <section class="principles section-wrap" id="principles" aria-labelledby="principles-title">
+      <div class="section-lead"><p class="eyebrow">01 — THE PRINCIPLES</p><h2 id="principles-title">Trust is a boundary,<br>not a feeling.</h2><p>Three decisions make the difference between a resilient interface and an avoidable risk.</p></div>
+      <div class="principle-grid">
+        <article class="principle"><span class="principle-number">01 /</span><h3>Keep text as text.</h3><p>Use safe output APIs, such as <code>textContent</code>, for untrusted plain text. Never treat it as executable markup.</p></article>
+        <article class="principle"><span class="principle-number">02 /</span><h3>Respect the context.</h3><p>HTML, attributes, URLs, scripts, and CSS need different defenses. A single blanket escape rule cannot cover every context.</p></article>
+        <article class="principle"><span class="principle-number">03 /</span><h3>Layer your safeguards.</h3><p>Use context-aware encoding, safe DOM APIs, validated destinations, vetted sanitization for rich HTML, and a restrictive CSP.</p></article>
+      </div>
+    </section>
+
+    <section class="studio section-wrap" id="studio" aria-labelledby="studio-title">
+      <div class="section-lead"><p class="eyebrow">02 — THE INTERACTIVE STUDIO</p><h2 id="studio-title">See the boundary<br><em>hold.</em></h2><p>Type plain text or markup-like characters. The demo only places those bytes in a text node — it never interprets them as HTML.</p></div>
+      <div class="workbench">
+        <div class="workbench-topline"><span><span class="status-dot" aria-hidden="true"></span> SAFE TEXT RENDERING</span><span>LOCAL / NO NETWORK</span></div>
+        <div class="workbench-grid">
+          <div class="workbench-pane">
+            <label for="untrusted">01 — Untrusted input</label>
+            <textarea id="untrusted" rows="6" spellcheck="false" maxlength="1200">&lt;em&gt;Hello, world.&lt;/em&gt;</textarea>
+            <div class="pane-footer"><span>Everything entered is treated as inert text.</span><span id="character-count">28 / 1200</span></div>
+          </div>
+          <div class="workbench-pane output-pane">
+            <div class="output-heading"><span>02 — Text-only output</span><span class="safe-pill">NOT EXECUTED</span></div>
+            <pre class="output-display"><code id="rendered" aria-live="polite"></code></pre>
+            <p class="pane-note" id="render-status" role="status">Rendered with <code>textContent</code>.</p>
+          </div>
+        </div>
+        <div class="workbench-actions"><button type="button" class="primary-cta" id="render-button">Render safely <span aria-hidden="true">↗</span></button><button type="button" class="reset-button" id="reset-button">Reset example</button></div>
+      </div>
+    </section>
+
+    <section class="contexts section-wrap" aria-labelledby="contexts-title">
+      <div class="context-title"><div><p class="eyebrow">03 — THE CONTEXTS</p><h2 id="contexts-title">One input.<br>Different rules.</h2></div><p>Choose a browser context to see the defensive question that matters.</p></div>
+      <div class="context-module">
+        <div class="context-tabs" role="group" aria-label="Output context">
+          <button type="button" data-context="text" aria-pressed="true">HTML text</button>
+          <button type="button" data-context="attribute" aria-pressed="false">Attributes</button>
+          <button type="button" data-context="url" aria-pressed="false">URLs</button>
+        </div>
+        <div class="context-copy"><span class="context-index" id="context-index">CONTEXT 01 / 03</span><h3 id="context-heading">Render text, not markup.</h3><p id="context-description">For plain text in the DOM, use textContent or an equivalent safe API. Untrusted input is displayed without becoming HTML.</p><p class="context-note" id="context-note">Rule: never route plain text through an HTML parser.</p></div>
+      </div>
+      <div class="url-policy" aria-labelledby="url-policy-title">
+        <div class="context-index">OFFLINE PRACTICE / URL CONTEXT</div>
+        <h3 id="url-policy-title">Would this destination pass a strict allowlist?</h3>
+        <p>Example rule: allow only HTTPS URLs at exactly <code>developer.mozilla.org</code>, with no embedded account or password. This demonstration validates a string; it never opens the URL.</p>
+        <label for="url-candidate">Destination to evaluate</label>
+        <div class="url-policy-controls">
+          <input id="url-candidate" type="text" spellcheck="false" autocomplete="off" maxlength="500" value="https://developer.mozilla.org/en-US/docs/Web/Security">
+          <button type="button" class="primary-cta" id="url-check">Check policy</button>
+        </div>
+        <p id="url-result" role="status" aria-live="polite">Enter a destination and check it against the example rule.</p>
+      </div>
+    </section>
+
+    <section class="knowledge section-wrap" id="check" aria-labelledby="check-title">
+      <p class="eyebrow">04 — THE KNOWLEDGE CHECK</p><h2 id="check-title">A simple choice.<br><em>A meaningful difference.</em></h2>
+      <p class="question">You need to display a visitor's plain-text comment. Which DOM API is the safer default?</p>
+      <div class="answer-row" role="group" aria-label="Choose the safer default">
+        <button type="button" class="answer" data-answer="markup" aria-pressed="false"><span class="answer-code">A</span> <code>innerHTML</code></button>
+        <button type="button" class="answer" data-answer="text" aria-pressed="false"><span class="answer-code">B</span> <code>textContent</code></button>
+      </div>
+      <p class="answer-feedback" id="answer-feedback" aria-live="polite">Choose an answer to reveal the principle.</p>
+    </section>
+  </main>
+  <footer class="footer"><div><span class="footer-brand">CONTEXT / MATTERS</span><p>A focused educational studio. Not a security audit or exploitation tool.</p></div><a href="#top">Back to top ↑</a></footer>
+</body>
+</html>
