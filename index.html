@@ -4,7 +4,7 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta name="color-scheme" content="dark">
-  <meta name="description" content="An offline educational studio exploring context-aware output and safe DOM rendering.">
+  <meta name="description" content="An interactive browser studio for context-aware output and safe DOM rendering.">
   <meta http-equiv="Content-Security-Policy" content="default-src 'none'; style-src 'self'; script-src 'self'; img-src 'self'; connect-src 'none'; form-action 'none'; frame-src 'none'; base-uri 'none'">
   <title>Context Matters — XSS Defense Studio</title>
   <link rel="stylesheet" href="./styles.css">
@@ -26,7 +26,7 @@
         <h1 id="hero-title">The boundary<br>is <em>the beauty.</em></h1>
         <p class="hero-intro">When data is treated as data, the interface stays yours. Explore the quiet craft of rendering untrusted text safely.</p>
         <div class="hero-links"><a class="primary-cta" href="#studio">Enter the studio <span aria-hidden="true">↗</span></a><a class="text-cta" href="#principles">See the principles <span aria-hidden="true">↓</span></a></div>
-        <p class="subtle">Offline by design. No sign-in, analytics, or external dependencies.</p>
+        <p class="subtle">Private by design. No sign-in, analytics, or external dependencies.</p>
       </div>
       <div class="hero-visual" aria-hidden="true">
         <div class="visual-ring ring-one"></div><div class="visual-ring ring-two"></div><div class="visual-ring ring-three"></div>
@@ -76,7 +76,7 @@
         <div class="context-copy"><span class="context-index" id="context-index">CONTEXT 01 / 03</span><h3 id="context-heading">Render text, not markup.</h3><p id="context-description">For plain text in the DOM, use textContent or an equivalent safe API. Untrusted input is displayed without becoming HTML.</p><p class="context-note" id="context-note">Rule: never route plain text through an HTML parser.</p></div>
       </div>
       <div class="url-policy" aria-labelledby="url-policy-title">
-        <div class="context-index">OFFLINE PRACTICE / URL CONTEXT</div>
+        <div class="context-index">SAFE PRACTICE / URL CONTEXT</div>
         <h3 id="url-policy-title">Would this destination pass a strict allowlist?</h3>
         <p>Example rule: allow only HTTPS URLs at exactly <code>developer.mozilla.org</code>, with no embedded account or password. This demonstration validates a string; it never opens the URL.</p>
         <label for="url-candidate">Destination to evaluate</label>
