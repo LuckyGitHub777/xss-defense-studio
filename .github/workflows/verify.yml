@@ -1,4 +1,4 @@
-name: Verify offline defensive learning studio
+name: Verify XSS defensive learning studio
 on:
   push:
     branches: [main]
