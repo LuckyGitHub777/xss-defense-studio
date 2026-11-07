@@ -1,6 +1,8 @@
 # Context Matters — XSS Defense Studio
 
-An offline browser learning experience showing safe plain-text DOM rendering,
+**Explore online:** [Open the public interactive website](https://luckygithub777.github.io/xss-defense-studio/). Open the hosted browser experience first; the repository retains source code and optional local usage.
+
+An interactive browser learning experience showing safe plain-text DOM rendering,
 output contexts, a non-navigating URL-policy exercise, and a knowledge check.
 
 Open index.html in a browser. No login, external dependency, telemetry,
